@@ -1,0 +1,40 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="ProjectModuleManager">
+    <modules>
+      <module fileurl="file://$PROJECT_DIR$/08 JPA Configuration/08 JPA Configuration.iml" filepath="$PROJECT_DIR$/08 JPA Configuration/08 JPA Configuration.iml" />
+      <module fileurl="file://$PROJECT_DIR$/09 JPA Create Table/09 JPA Create Table.iml" filepath="$PROJECT_DIR$/09 JPA Create Table/09 JPA Create Table.iml" />
+      <module fileurl="file://$PROJECT_DIR$/10 JPA Persist - Tabloya kaydetme/10 JPA Persist - Tabloya kaydetme.iml" filepath="$PROJECT_DIR$/10 JPA Persist - Tabloya kaydetme/10 JPA Persist - Tabloya kaydetme.iml" />
+      <module fileurl="file://$PROJECT_DIR$/11 JPA Find - Tablodan Veri Cekme/11 JPA Find - Tablodan Veri Cekme.iml" filepath="$PROJECT_DIR$/11 JPA Find - Tablodan Veri Cekme/11 JPA Find - Tablodan Veri Cekme.iml" />
+      <module fileurl="file://$PROJECT_DIR$/12 JPA Update Merge - Cekilen Veriyi Duzenleme ve Guncelleme/12 JPA Update Merge - Cekilen Veriyi Duzenleme ve Guncelleme.iml" filepath="$PROJECT_DIR$/12 JPA Update Merge - Cekilen Veriyi Duzenleme ve Guncelleme/12 JPA Update Merge - Cekilen Veriyi Duzenleme ve Guncelleme.iml" />
+      <module fileurl="file://$PROJECT_DIR$/13 JPA Delete Merge - Cekilen Veriyi Silme/13 JPA Delete Merge - Cekilen Veriyi Silme.iml" filepath="$PROJECT_DIR$/13 JPA Delete Merge - Cekilen Veriyi Silme/13 JPA Delete Merge - Cekilen Veriyi Silme.iml" />
+      <module fileurl="file://$PROJECT_DIR$/14 JPA Kutuphane Otomasyonu/14 JPA Kutuphane Otomasyonu.iml" filepath="$PROJECT_DIR$/14 JPA Kutuphane Otomasyonu/14 JPA Kutuphane Otomasyonu.iml" />
+      <module fileurl="file://$PROJECT_DIR$/16 JPA Generated Value/16 JPA Generated Value.iml" filepath="$PROJECT_DIR$/16 JPA Generated Value/16 JPA Generated Value.iml" />
+      <module fileurl="file://$PROJECT_DIR$/16 JPA Generated Value2/16 JPA Generated Value2.iml" filepath="$PROJECT_DIR$/16 JPA Generated Value2/16 JPA Generated Value2.iml" />
+      <module fileurl="file://$PROJECT_DIR$/17 JPA Embeddable/17 JPA Embeddable.iml" filepath="$PROJECT_DIR$/17 JPA Embeddable/17 JPA Embeddable.iml" />
+      <module fileurl="file://$PROJECT_DIR$/18 JPA Elemental Collection/18 JPA Elemental Collection.iml" filepath="$PROJECT_DIR$/18 JPA Elemental Collection/18 JPA Elemental Collection.iml" />
+      <module fileurl="file://$PROJECT_DIR$/19 JPA Elemental Collection Collection Table/19 JPA Elemental Collection Collection Table.iml" filepath="$PROJECT_DIR$/19 JPA Elemental Collection Collection Table/19 JPA Elemental Collection Collection Table.iml" />
+      <module fileurl="file://$PROJECT_DIR$/20 JPA Elemental Collection ListAdress/20 JPA Elemental Collection ListAdress.iml" filepath="$PROJECT_DIR$/20 JPA Elemental Collection ListAdress/20 JPA Elemental Collection ListAdress.iml" />
+      <module fileurl="file://$PROJECT_DIR$/21 JPA Elemental Collection MAP String - String/21 JPA Elemental Collection MAP String - String.iml" filepath="$PROJECT_DIR$/21 JPA Elemental Collection MAP String - String/21 JPA Elemental Collection MAP String - String.iml" />
+      <module fileurl="file://$PROJECT_DIR$/22 JPA Elemental Collection MAP Enum - String/22 JPA Elemental Collection MAP Enum - String.iml" filepath="$PROJECT_DIR$/22 JPA Elemental Collection MAP Enum - String/22 JPA Elemental Collection MAP Enum - String.iml" />
+      <module fileurl="file://$PROJECT_DIR$/23 JPA Relationship One to One/23 JPA Relationship One to One.iml" filepath="$PROJECT_DIR$/23 JPA Relationship One to One/23 JPA Relationship One to One.iml" />
+      <module fileurl="file://$PROJECT_DIR$/.idea/Java_Web_Backend.iml" filepath="$PROJECT_DIR$/.idea/Java_Web_Backend.iml" />
+      <module fileurl="file://$PROJECT_DIR$/03 Spring Core DataBase Connect/src/main/main.iml" filepath="$PROJECT_DIR$/03 Spring Core DataBase Connect/src/main/main.iml" />
+      <module fileurl="file://$PROJECT_DIR$/01 Spring Core Configuration/src/main/main1.iml" filepath="$PROJECT_DIR$/01 Spring Core Configuration/src/main/main1.iml" />
+      <module fileurl="file://$PROJECT_DIR$/06 Spring Core AOP JoinPoint/src/main/main2.iml" filepath="$PROJECT_DIR$/06 Spring Core AOP JoinPoint/src/main/main2.iml" />
+      <module fileurl="file://$PROJECT_DIR$/05 Spring Core AOP PointCut/src/main/main3.iml" filepath="$PROJECT_DIR$/05 Spring Core AOP PointCut/src/main/main3.iml" />
+      <module fileurl="file://$PROJECT_DIR$/07 Spring Core AOP AfterReturn/src/main/main4.iml" filepath="$PROJECT_DIR$/07 Spring Core AOP AfterReturn/src/main/main4.iml" />
+      <module fileurl="file://$PROJECT_DIR$/04 Spring Core AOP Before - After/src/main/main5.iml" filepath="$PROJECT_DIR$/04 Spring Core AOP Before - After/src/main/main5.iml" />
+      <module fileurl="file://$PROJECT_DIR$/15 JPA Persist Fim Update Delete App - Library-otomotion/src/main/main6.iml" filepath="$PROJECT_DIR$/15 JPA Persist Fim Update Delete App - Library-otomotion/src/main/main6.iml" />
+      <module fileurl="file://$PROJECT_DIR$/02 Spring Core Autowired/src/main/main7.iml" filepath="$PROJECT_DIR$/02 Spring Core Autowired/src/main/main7.iml" />
+      <module fileurl="file://$PROJECT_DIR$/15 JPA Persist Fim Update Delete App - Library-otomotion/src/test/test.iml" filepath="$PROJECT_DIR$/15 JPA Persist Fim Update Delete App - Library-otomotion/src/test/test.iml" />
+      <module fileurl="file://$PROJECT_DIR$/02 Spring Core Autowired/src/test/test1.iml" filepath="$PROJECT_DIR$/02 Spring Core Autowired/src/test/test1.iml" />
+      <module fileurl="file://$PROJECT_DIR$/04 Spring Core AOP Before - After/src/test/test2.iml" filepath="$PROJECT_DIR$/04 Spring Core AOP Before - After/src/test/test2.iml" />
+      <module fileurl="file://$PROJECT_DIR$/05 Spring Core AOP PointCut/src/test/test3.iml" filepath="$PROJECT_DIR$/05 Spring Core AOP PointCut/src/test/test3.iml" />
+      <module fileurl="file://$PROJECT_DIR$/07 Spring Core AOP AfterReturn/src/test/test4.iml" filepath="$PROJECT_DIR$/07 Spring Core AOP AfterReturn/src/test/test4.iml" />
+      <module fileurl="file://$PROJECT_DIR$/03 Spring Core DataBase Connect/src/test/test5.iml" filepath="$PROJECT_DIR$/03 Spring Core DataBase Connect/src/test/test5.iml" />
+      <module fileurl="file://$PROJECT_DIR$/01 Spring Core Configuration/src/test/test6.iml" filepath="$PROJECT_DIR$/01 Spring Core Configuration/src/test/test6.iml" />
+      <module fileurl="file://$PROJECT_DIR$/06 Spring Core AOP JoinPoint/src/test/test7.iml" filepath="$PROJECT_DIR$/06 Spring Core AOP JoinPoint/src/test/test7.iml" />
+    </modules>
+  </component>
+</project>

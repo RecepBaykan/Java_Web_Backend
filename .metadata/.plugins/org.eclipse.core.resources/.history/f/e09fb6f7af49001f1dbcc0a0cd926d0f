@@ -1,0 +1,39 @@
+package com.nontius.proje.serviceImpl;
+
+import org.springframework.stereotype.Service;
+
+import com.nontius.proje.entity.Employee;
+import com.nontius.proje.entityDTO.EmployeeDTO;
+import com.nontius.proje.mapper.EmployeeMapper;
+import com.nontius.proje.repository.EmployeeRepository;
+import com.nontius.proje.service.EmployeeService;
+
+import lombok.Data;
+import lombok.NoArgsConstructor;
+
+@Service
+public class EmployeServiceImpl implements EmployeeService {
+	
+	private EmployeeRepository employeeRepository;
+	
+	public EmployeServiceImpl(EmployeeRepository employeeRepository) {
+		this.employeeRepository = employeeRepository;
+	}
+	
+	
+
+	@Override
+	public EmployeeDTO createEmployee(EmployeeDTO dto) {
+		// TODO Auto-generated method stub
+		
+		Employee employee = EmployeeMapper.getToEmployee(dto);
+		
+		// Kodun okunurluğu açısında ve veritabanına kaydedilmiş bir veriyi de tutmak için
+		// savedEmploye oluşturulmuştur
+		Employee savedEmploye = employeeRepository.save(employee);
+		
+		return EmployeeMapper.getToEmployeeDTO(savedEmploye);
+	}
+	
+
+}

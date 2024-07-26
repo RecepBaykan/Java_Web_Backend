@@ -1,0 +1,22 @@
+import java.util.Date;
+
+import model.Book;
+import repostoryImpl.BookRepositoryImpl;
+
+public class App {
+
+	public static void main(String[] args) {
+
+		
+		
+		BookRepositoryImpl bookRepositoryImpl = new BookRepositoryImpl();
+		
+		Book book = new Book("Batman", "Bilim-Kurgu", "JJ Rowling");
+
+		
+		
+		
+
+	}
+
+}

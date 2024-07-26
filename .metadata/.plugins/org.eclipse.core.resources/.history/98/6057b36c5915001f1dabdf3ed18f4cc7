@@ -1,0 +1,21 @@
+package controller;
+
+import org.springframework.stereotype.Controller;
+import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.RequestParam;
+
+@Controller
+public class LibraryController {
+
+	
+	@GetMapping("/submit")
+	public String submintForm(
+			 @RequestParam (name ="ID", required = false) String id,
+			
+			) {
+		
+		
+		
+		return "succes";
+	}
+}

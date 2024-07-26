@@ -1,0 +1,25 @@
+package com.nontius.proje.controller;
+
+import org.springframework.http.ResponseEntity;
+import org.springframework.web.bind.annotation.PostMapping;
+import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RestController;
+
+import com.nontius.proje.entityDTO.EmployeeDTO;
+import com.nontius.proje.service.EmployeeService;
+
+@RestController
+@RequestMapping("/api/employee")
+public class EmployeeController {
+	
+	private EmployeeService employeeService;
+	
+	// Create Employee@PostMapping
+	@PostMapping
+	public ResponseEntity<EmployeeDTO> createEmployee(@RequestBody EmployeeDTO dto){
+		
+		EmployeeDTO savedEmployee = emp
+	}
+	
+
+}

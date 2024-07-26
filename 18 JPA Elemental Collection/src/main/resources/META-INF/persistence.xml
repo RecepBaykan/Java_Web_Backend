@@ -1,0 +1,126 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<persistence version="2.2"
+	xmlns="http://xmlns.jcp.org/xml/ns/persistence"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:schemaLocation="http://xmlns.jcp.org/xml/ns/persistence
+     http://xmlns.jcp.org/xml/ns/persistence/persistence_2_2.xsd">
+
+	<!-- Persistence Birimi Her birim kendine özgü bir veritabanını yönetimi 
+		amaçlar. name değişkeni ile persistence birimini eşsiz yapar ve farklı işlemlerde 
+		kullanırız. -->
+	<persistence-unit name="persistenceUnitMySQLCreate"
+		transaction-type="RESOURCE_LOCAL">
+		<!-- VT Tabloların sınıf modeller -->
+
+		<class>model.Book</class>
+		<class>model.User</class>
+
+		<properties>
+
+			<!-- Hangi veritabanını kullanacağımızı seçeriz -->
+			<property name="javax.persistence.jdbc.driver"
+				value="com.mysql.jdbc.Driver" />
+
+			<!-- Veri tabanına girişi için bilgiler -->
+			<property name="javax.persistence.jdbc.url"
+				value="jdbc:mysql://localhost:3306/libbook" />
+			<property name="javax.persistence.jdbc.user" value="root" />
+			<property name="javax.persistence.jdbc.password"
+				value="1234" />
+
+
+			<!-- ORM çözümü ve veritabanı seçimi -->
+			<property name="hibernate.dialect"
+				value="org.hibernate.dialect.MySQL8Dialect" />
+
+			<!-- Tablo oluşturma yöntemi -->
+			<property name="hibernate.hbm2ddl.auto" value="create" />
+
+			<!-- Veri tabanı ile alışveriş yöntemi -->
+			<property name="hibernate.current_session_context_class"
+				value="thread" />
+
+			<!-- Konsol üzerinde SQL sorgularını göstermek için -->
+			<property name="hibernate.show_sql" value="true" />
+			<property name="hibernate.format_sql" value="true" />
+
+			<!-- Bağlantı sağlayıcı özellikleri - C3P0 Connection Provider ile -->
+			<property name="hibernate.c3p0.connection.provider_class"
+				value="org.hibernate.c3p0.internal.C3P0ConnectionProvider" />
+
+			<!-- Bağlantı sayısı -->
+			<property name="hibernate.c3p0.min_size" value="1" />
+			<property name="hibernate.c3p0.max_size" value="20" />
+			<property name="hibernate.c3p0.acquire_increment" value="1" />
+
+			<!-- Sorguların cachelenmesi, daha hızlı sorgu yapmayı sağlar. Value kadar 
+				sorgu adedi tutar. -->
+			<property name="hibernate.c3p0.max_statements" value="30" />
+
+			<!-- Kullanılmayan bağlantının yok edilme süresi, saniye cinsinden -->
+			<property name="hibernate.c3p0.timeout" value="600" />
+
+			<!-- Bağlantıları kontrol etme süresi, saniye cinsinden -->
+			<property name="hibernate.c3p0.idle_test_period"
+				value="1000" />
+		</properties>
+	</persistence-unit>
+
+	<persistence-unit name="persistenceUnitMySQLUpdate"
+		transaction-type="RESOURCE_LOCAL">
+		<!-- VT Tabloların sınıf modeller -->
+		<class>model.Book</class>
+		<class>model.User</class>
+		<properties>
+
+			<!-- Hangi veritabanını kullanacağımızı seçeriz -->
+			<property name="javax.persistence.jdbc.driver"
+				value="com.mysql.jdbc.Driver" />
+
+			<!-- Veri tabanına girişi için bilgiler -->
+			<property name="javax.persistence.jdbc.url"
+				value="jdbc:mysql://localhost:3306/libbook" />
+			<property name="javax.persistence.jdbc.user" value="root" />
+			<property name="javax.persistence.jdbc.password"
+				value="1234" />
+
+			<!-- ORM çözümü ve veritabanı seçimi -->
+			<property name="hibernate.dialect"
+				value="org.hibernate.dialect.MySQL8Dialect" />
+
+			<!-- Tablo oluşturma yöntemi -->
+			<property name="hibernate.hbm2ddl.auto" value="update" />
+
+			<!-- Veri tabanı ile alışveriş yöntemi -->
+			<property name="hibernate.current_session_context_class"
+				value="thread" />
+
+			<!-- Konsol üzerinde SQL sorgularını göstermek için -->
+			<property name="hibernate.show_sql" value="true" />
+			<property name="hibernate.format_sql" value="true" />
+
+			<!-- Bağlantı sağlayıcı özellikleri - C3P0 Connection Provider ile -->
+			<property name="hibernate.c3p0.connection.provider_class"
+				value="org.hibernate.c3p0.internal.C3P0ConnectionProvider" />
+
+			<!-- Bağlantı sayısı -->
+			<property name="hibernate.c3p0.min_size" value="1" />
+			<property name="hibernate.c3p0.max_size" value="20" />
+			<property name="hibernate.c3p0.acquire_increment" value="1" />
+
+			<!-- Sorguların cachelenmesi, daha hızlı sorgu yapmayı sağlar. Value kadar 
+				sorgu adedi tutar. -->
+			<property name="hibernate.c3p0.max_statements" value="30" />
+
+			<!-- Kullanılmayan bağlantının yok edilme süresi, saniye cinsinden -->
+			<property name="hibernate.c3p0.timeout" value="600" />
+
+			<!-- Bağlantıları kontrol etme süresi, saniye cinsinden -->
+			<property name="hibernate.c3p0.idle_test_period"
+				value="1000" />
+		</properties>
+	</persistence-unit>
+
+
+
+</persistence>

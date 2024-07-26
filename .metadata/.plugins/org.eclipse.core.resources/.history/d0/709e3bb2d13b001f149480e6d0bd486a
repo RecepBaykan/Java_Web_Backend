@@ -1,0 +1,80 @@
+package com.nontius.proje.controller;
+
+import java.util.List;
+
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.web.bind.annotation.CrossOrigin;
+import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.PostMapping;
+import org.springframework.web.bind.annotation.RequestBody;
+import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RequestParam;
+import org.springframework.web.bind.annotation.RestController;
+
+import com.nontius.proje.DTO.CreateUser;
+import com.nontius.proje.DTO.ListMessages;
+import com.nontius.proje.DTO.SendMessage;
+import com.nontius.proje.DTO.UserDTO;
+import com.nontius.proje.model.SendedMessage;
+import com.nontius.proje.model.User;
+import com.nontius.proje.service.UserService;
+
+@RestController
+@RequestMapping("user")
+@CrossOrigin(origins = "http://localhost:5173")
+public class UserController {
+	
+	@Autowired
+	private UserService service;
+	
+	
+	@PostMapping("createUser")	
+	private String createUser(@RequestBody CreateUser newUser) {
+		
+		return service.createUser(newUser);	
+	}
+	
+	@PostMapping("loginUser")	
+	private String loginUser(@RequestBody CreateUser newUser) {
+		
+		return service.loginUser(newUser);	
+	}
+	
+	@GetMapping("getToken")
+	public String getToken(@RequestBody CreateUser newUser) {
+		
+		return service.getToken(newUser);
+	}
+	
+	@GetMapping("delete")
+	public void deleteUser(@RequestParam String username){
+		
+		service.remove(username);
+	
+	}
+	
+	@GetMapping("listUser")
+	public List<String> listUser(){
+		
+		return service.listUsername();
+	}
+	
+	@PostMapping("sendMessage")
+	public boolean sendMessage(@RequestBody SendMessage message) {
+		
+		
+		
+		return service.sendMessage(message);
+		
+	}
+	
+	@GetMapping("listMessage")
+	public ListMessages listMessages(@RequestParam String username) {
+		
+		return service.listMessages(username);
+		
+	}
+	
+
+
+}

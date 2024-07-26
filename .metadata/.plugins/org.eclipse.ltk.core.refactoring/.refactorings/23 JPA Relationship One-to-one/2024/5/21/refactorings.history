@@ -1,0 +1,4 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<session version="1.0">
+<refactoring comment="Rename resource &apos;23 JPA Relationship One-to-one/src/main/resources/mysql.yml&apos; to &apos;application.yml&apos;" description="Rename resource &apos;mysql.yml&apos;" flags="7" id="org.eclipse.ltk.core.refactoring.rename.resource" input="src/main/resources/mysql.yml" name="application.yml" stamp="1716419609545" updateReferences="true"/>
+</session>

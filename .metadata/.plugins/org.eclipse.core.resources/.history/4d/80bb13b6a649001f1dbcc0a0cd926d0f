@@ -1,0 +1,5 @@
+package com.nontius.proje.entity;
+
+public class Employee {
+
+}

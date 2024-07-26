@@ -1,0 +1,155 @@
+package com.nontius.proje.service;
+
+import java.util.ArrayList;
+import java.util.List;
+
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Service;
+
+import com.nontius.proje.DTO.CreateUser;
+import com.nontius.proje.DTO.ListMessages;
+import com.nontius.proje.DTO.SendMessage;
+import com.nontius.proje.DTO.UserDTO;
+import com.nontius.proje.model.RecivedMessage;
+import com.nontius.proje.model.SendedMessage;
+import com.nontius.proje.model.User;
+import com.nontius.proje.repository.RecivedMessageRepository;
+import com.nontius.proje.repository.SendedMessageRepository;
+import com.nontius.proje.repository.UserRepository;
+
+import lombok.Data;
+
+@Service
+@Data
+public class UserService {
+
+	@Autowired
+	private UserRepository repository;
+
+	@Autowired
+	private SendedMessageRepository sendedMessageRepository;
+
+	@Autowired
+	private RecivedMessageRepository recivedMessageRepository;
+
+	public String createUser(CreateUser newUser) {
+		
+		Error error = Error.NO_ERROR;
+
+		User user = new User();
+		user.setUsername(newUser.getUsername());
+		user.setPassword(newUser.getPassword());
+
+		
+		
+		for(User u : repository.findAll()) {
+			if(u.getUsername().equals(user.getUsername())) {
+				error = Error.SAME_USERNAME;
+				break;
+			}
+		}
+		
+
+		return error.toString();
+
+	}
+
+	public void remove(String username) {
+
+		List<User> users = repository.findAll();
+
+		for (User user : users) {
+			if (user.getUsername().equals(username)) {
+				repository.delete(user);
+				break;
+			}
+		}
+
+	}
+
+	public List<String> listUsername() {
+		
+		
+
+		List<User> users = repository.findAll();
+
+		List<String> usernames = new ArrayList<String>();
+
+		for (User user : users) {
+			usernames.add(user.getUsername());
+		}
+
+		return usernames;
+
+	}
+
+	public boolean sendMessage(SendMessage message) {
+
+		SendedMessage sendedMessage = new SendedMessage();
+
+		sendedMessage.setMessage(message.getMessage());
+
+		for (User user : repository.findAll()) {
+			if (user.getUsername().equals(message.getFrom())) {
+
+				sendedMessage.setUser(user);
+				break;
+			}
+		}
+
+		RecivedMessage recivedMessage = new RecivedMessage();
+		recivedMessage.setMessage(message.getMessage());
+
+		for (User user : repository.findAll()) {
+			if (user.getUsername().equals(message.getTo())) {
+
+				recivedMessage.setUser(user);
+				break;
+			}
+		}
+
+		if (sendedMessage.getUser() == null) {
+			return false;
+		} else {
+
+			sendedMessageRepository.save(sendedMessage);
+			recivedMessageRepository.save(recivedMessage);
+			return true;
+		}
+	}
+
+	public ListMessages listMessages(String username) {
+
+		ListMessages listMessages = new ListMessages();
+		List<String> send = new ArrayList<String>();
+		List<String> recived = new ArrayList<String>();
+		for (User user : repository.findAll()) {
+			if (username.equals(user.getUsername())) {
+
+				for (SendedMessage message : user.getSendedMessage()) {
+
+					send.add(message.getMessage());
+				}
+
+				for (RecivedMessage message : user.getRecivedMessage()) {
+
+					recived.add(message.getMessage());
+				}
+			}
+			break;
+		}
+		
+		listMessages.setSend(send);
+		listMessages.setRecived(recived);
+		
+		return listMessages;
+	}
+	
+	
+
+}
+
+
+enum Error{
+	NO_ERROR,SAME_USERNAME
+}

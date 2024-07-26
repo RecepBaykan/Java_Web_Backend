@@ -1,0 +1,9 @@
+package com.nontius.proje.service;
+
+import com.nontius.proje.entityDTO.EmployeeDTO;
+
+public interface EmployeeService {
+	
+	EmployeeDto createEmployee(EmployeeDTO dto);
+
+}

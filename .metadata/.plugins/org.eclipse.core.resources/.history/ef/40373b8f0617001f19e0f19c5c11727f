@@ -1,0 +1,36 @@
+package JPA_FactoryImpl;
+
+import jakarta.persistence.EntityManager;
+import jakarta.persistence.EntityManagerFactory;
+import jakarta.persistence.EntityTransaction;
+import jakarta.persistence.Persistence;
+
+import JPA_Factory.JPAFactory;
+
+public class JPAFactorImpl implements JPAFactory {
+
+	private EntityManager entityManager;
+	private EntityTransaction transaction;
+
+	public JPAFactorImpl() {
+
+		EntityManagerFactory factory = Persistence.createEntityManagerFactory("persistenceUnitMySQLUpdate");
+		this.entityManager = factory.createEntityManager();
+		this.transaction = this.entityManager.getTransaction();
+	
+	}
+	
+	
+	@Override
+	public EntityManager getEntityManager() {
+		// TODO Auto-generated method stub
+		return entityManager;
+	}
+	
+	
+	@Override
+	public EntityTransaction getEntityTransaction() {
+		// TODO Auto-generated method stub
+		return transaction;
+	}
+}

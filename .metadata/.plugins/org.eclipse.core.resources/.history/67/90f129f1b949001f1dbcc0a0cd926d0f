@@ -1,0 +1,56 @@
+package com.nontius.proje.serviceImpl;
+
+import java.util.List;
+
+import org.springframework.stereotype.Service;
+
+import com.nontius.proje.entity.Employee;
+import com.nontius.proje.entityDTO.EmployeeDTO;
+import com.nontius.proje.exception.ResourcesNotFound;
+import com.nontius.proje.mapper.EmployeeMapper;
+import com.nontius.proje.repository.EmployeeRepository;
+import com.nontius.proje.service.EmployeeService;
+
+@Service
+public class EmployeServiceImpl implements EmployeeService {
+	
+	private EmployeeRepository employeeRepository;
+	
+	public EmployeServiceImpl(EmployeeRepository employeeRepository) {
+		this.employeeRepository = employeeRepository;
+	}
+	
+	
+
+	@Override
+	public EmployeeDTO createEmployee(EmployeeDTO dto) {
+		// TODO Auto-generated method stub
+		
+		Employee employee = EmployeeMapper.getToEmployee(dto);
+		
+		// Kodun okunurluğu açısında ve veritabanına kaydedilmiş bir veriyi de tutmak için
+		// savedEmploye oluşturulmuştur
+		Employee savedEmploye = employeeRepository.save(employee);
+		
+		return EmployeeMapper.getToEmployeeDTO(savedEmploye);
+	}
+	
+	@Override
+	public EmployeeDTO getEmployeeDTO(Long employeeID) {
+		
+		Employee employee = employeeRepository.findById(employeeID).orElseThrow(
+				() -> new ResourcesNotFound("Employee is not exit with given id: " + employeeID)
+				);
+		
+		return EmployeeMapper.getToEmployeeDTO(employee);
+	}
+	
+	@Override
+	public List<EmployeeDTO> getAllEmployeesDtos() {
+		
+		List<Employee> employees = employeeRepository.findAll();
+		
+	}
+	
+
+}

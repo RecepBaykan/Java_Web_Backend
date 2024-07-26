@@ -1,0 +1,6 @@
+package com.nontius.proje.exception;
+
+@S
+public class BookNotFound {
+
+}
