@@ -1,8 +1,0 @@
-package com.nontius.proje.serviceImpl;
-
-import com.nontius.proje.service.EmployeeService;
-
-public class EmployeServiceImpl implements EmployeeService {
-	
-
-}

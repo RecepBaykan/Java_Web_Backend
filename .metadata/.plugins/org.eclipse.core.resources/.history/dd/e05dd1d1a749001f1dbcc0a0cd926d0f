@@ -1,8 +1,0 @@
-package com.nontius.proje.repository;
-
-import org.springframework.stereotype.Repository;
-
-@Repository
-public class EmployeeRepository {
-
-}

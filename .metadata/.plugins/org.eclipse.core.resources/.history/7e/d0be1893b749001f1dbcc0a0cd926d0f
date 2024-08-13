@@ -1,5 +1,0 @@
-package com.nontius.proje.exception;
-
-public class ResourcesNotFound {
-
-}
