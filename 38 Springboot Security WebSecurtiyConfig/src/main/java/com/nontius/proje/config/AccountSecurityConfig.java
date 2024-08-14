@@ -11,20 +11,32 @@ import lombok.RequiredArgsConstructor;
 
 @EnableWebSecurity
 @Configuration
-@RequiredArgsConstructor
 public class AccountSecurityConfig {
 
     private final AccountAuthenticationProvider accountAuthenticationProvider;
-
-    @Bean
-    public SecurityFilterChain filterChain(HttpSecurity http) throws Exception {
-    	System.out.println();
-        return http.build();
-            
+    
+    public AccountSecurityConfig(AccountAuthenticationProvider accountAuthenticationProvider) {
+    	this.accountAuthenticationProvider = accountAuthenticationProvider;
     }
 
     @Bean
-    public PasswordEncoder passwordEncoder() {
+	public SecurityFilterChain filterChain(HttpSecurity http) throws Exception {
+		
+		System.out.println(http);
+		
+		http.csrf().disable()
+	                .authorizeHttpRequests()
+	                    .requestMatchers("/api/account/**").hasRole("ADMIN") // ADMIN rolü olanlar bu path'lere erişebilir
+	                    .anyRequest().authenticated() // Diğer tüm istekler kimlik doğrulama gerektirir
+	                .and().authenticationProvider(accountAuthenticationProvider)
+	                .httpBasic(); // HTTP Basic Authentication kullanımı
+	                
+		  return http.build();
+	}
+    
+    
+    @Bean
+    public static PasswordEncoder passwordEncoder() {
         return new BCryptPasswordEncoder();
     }
 }

@@ -1,4 +1,4 @@
-package com.nontius.proje.config;
+	package com.nontius.proje.config;
 
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Lazy;
@@ -8,6 +8,7 @@ import org.springframework.security.authentication.UsernamePasswordAuthenticatio
 import org.springframework.security.core.Authentication;
 import org.springframework.security.core.AuthenticationException;
 import org.springframework.security.core.userdetails.UserDetails;
+import org.springframework.security.core.userdetails.UserDetailsService;
 import org.springframework.security.core.userdetails.UsernameNotFoundException;
 import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
 import org.springframework.security.crypto.password.PasswordEncoder;
@@ -21,33 +22,34 @@ import lombok.AllArgsConstructor;
 @Component
 public class AccountAuthenticationProvider implements AuthenticationProvider {
 
-	private final AccountDetailsUserServiceImp accountDetailsUserServiceImp;
+	private final UserDetailsService userDetailsService;
+	private final PasswordEncoder passwordEncoder;
 
-	public AccountAuthenticationProvider(@Lazy AccountDetailsUserServiceImp accountDetailsUserServiceImp) {
+	public AccountAuthenticationProvider(UserDetailsService userDetailsService, PasswordEncoder passwordEncoder) {
 			
-		this.accountDetailsUserServiceImp = accountDetailsUserServiceImp;
+		this.userDetailsService = userDetailsService;
+		this.passwordEncoder = passwordEncoder;
 	}
 
-	@Override
-	public Authentication authenticate( Authentication authentication) throws AuthenticationException {
+    @Override
+    public Authentication authenticate(Authentication authentication) throws AuthenticationException {
+        String username = authentication.getName();
+        String password = (String) authentication.getCredentials();
 
-		// DB'den kullanıcıyı al
-		
-		
+        try {
+            UserDetails userDetails = userDetailsService.loadUserByUsername(username);
 
-		try {
+            // Şifreyi doğrula
+            if (!passwordEncoder.matches(password, userDetails.getPassword())) {
+                throw new BadCredentialsException("Invalid password");
+            }
 
-			UserDetails userdaDetails = accountDetailsUserServiceImp.loadUserByUsername(authentication.getName());
-			
-			return new UsernamePasswordAuthenticationToken(userdaDetails, userdaDetails.getPassword(),
-			        userdaDetails.getAuthorities());
+            return new UsernamePasswordAuthenticationToken(userDetails, password, userDetails.getAuthorities());
 
-			
-
-		} catch (UsernameNotFoundException e) {
-			throw new BadCredentialsException("Account Not Found");
-		}
-	}
+        } catch (UsernameNotFoundException e) {
+            throw new BadCredentialsException("Account Not Found");
+        }
+    }
 
 	@Override
 	public boolean supports(Class<?> authentication) {

@@ -43,15 +43,16 @@ public class AccountDetailsUserServiceImp implements UserDetailsService {
         if (accountOptional.isPresent()) {
             Account account = accountOptional.get();
             Collection<GrantedAuthority> authorities = account.getRoles().stream()
-                    .map(role -> new SimpleGrantedAuthority(role))
+                    .map(role -> new SimpleGrantedAuthority("ROLE_" + role))
                     .collect(Collectors.toList());
             for(var s : authorities) {
             	System.err.println(s);
             }
-            
+           
             accountBuilder = User.withUsername(username);
-                    accountBuilder.password(passwordEncoder.encode(account.getPassword()))
+            accountBuilder.password(passwordEncoder.encode(account.getPassword())) 
                     .authorities(authorities);
+                  
                    
         } else {
             throw new UsernameNotFoundException("Account not found");
