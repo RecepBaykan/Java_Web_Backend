@@ -30,9 +30,17 @@ public class AccountSecurityConfig {
        
 		
 		
-		 http.httpBasic();
-		 
-		 return http.build();
+		return http.csrf().disable()
+                .authorizeHttpRequests()
+                .requestMatchers("/api/account/**")
+                .hasRole("ADMIN")
+                .and()
+                .httpBasic()
+                .and()
+                //CustomAuthenticationProvider
+                .authenticationProvider(authenticationProvider) 
+                .build();
+        
         
     }
 

@@ -21,6 +21,7 @@
 		<item key="SmartImportRootWizardPage.STORE_NESTED_PROJECTS" value="false"/>
 		<item key="SmartImportRootWizardPage.STORE_CONFIGURE_NATURES" value="true"/>
 		<list key="org.eclipse.ui.internal.wizards.datatransfer.SmartImportRootWizardPage.knownSources">
+			<item value="C:\Users\shiden\Desktop\game"/>
 			<item value="C:\Users\shiden\App\Project\website\Springboot Web Site"/>
 			<item value="C:\Users\shiden\Desktop\PuzzleGameHw-master"/>
 			<item value="C:\Users\shiden\Desktop\spring"/>

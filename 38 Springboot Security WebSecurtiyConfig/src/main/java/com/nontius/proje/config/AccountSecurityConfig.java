@@ -26,10 +26,10 @@ public class AccountSecurityConfig {
 		
 		http.csrf().disable()
 	                .authorizeHttpRequests()
-	                    .requestMatchers("/api/account/**").hasRole("ADMIN") // ADMIN rolü olanlar bu path'lere erişebilir
-	                    .anyRequest().authenticated() // Diğer tüm istekler kimlik doğrulama gerektirir
+	                    .requestMatchers("/api/account/**").hasRole("ADMIN")
+	                    .anyRequest().authenticated() 
 	                .and().authenticationProvider(accountAuthenticationProvider)
-	                .httpBasic(); // HTTP Basic Authentication kullanımı
+	                .httpBasic(); 
 	                
 		  return http.build();
 	}

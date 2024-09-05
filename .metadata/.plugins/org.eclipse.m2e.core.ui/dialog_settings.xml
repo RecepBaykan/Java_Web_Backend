@@ -82,4 +82,18 @@
 		<item key="x" value="720"/>
 		<item key="y" value="166"/>
 	</section>
+	<section name="wizardPage">
+		<list key="groupId">
+			<item value="game"/>
+		</list>
+		<list key="name">
+			<item value="Game"/>
+		</list>
+		<list key="artifactId">
+			<item value="game"/>
+		</list>
+		<list key="version">
+			<item value="0.0.1-SNAPSHOT"/>
+		</list>
+	</section>
 </section>

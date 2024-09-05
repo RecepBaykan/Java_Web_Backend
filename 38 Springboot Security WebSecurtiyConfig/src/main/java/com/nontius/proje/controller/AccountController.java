@@ -7,10 +7,14 @@ import org.springframework.http.RequestEntity;
 import org.springframework.http.ResponseEntity;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.CrossOrigin;
+import org.springframework.web.bind.annotation.DeleteMapping;
 import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
+import org.springframework.web.bind.annotation.PutMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.RestController;
 import org.springframework.web.service.annotation.GetExchange;
 
@@ -41,6 +45,26 @@ public class AccountController {
 		
 		AccountDTO account = service.createAccount(accountDTO);
 		return ResponseEntity.ok(account);
+		
+
+	}
+	
+	
+	@PutMapping("/{id}")
+	public ResponseEntity<?> updateAccount(@PathVariable("id") Long id, @RequestBody AccountDTO accountDTO){
+		
+		AccountDTO account = service.update( id, accountDTO);
+		return ResponseEntity.ok(account);
+		
+	}
+	
+	
+	
+	@DeleteMapping("/{id}")
+	public void deleteAccoubt(@PathVariable("id") Long id){
+		
+		
+		service.delete(id);
 		
 	}
 

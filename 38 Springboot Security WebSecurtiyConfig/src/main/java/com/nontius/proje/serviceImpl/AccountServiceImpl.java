@@ -52,6 +52,37 @@ public class AccountServiceImpl implements AccountService {
 				).collect(Collectors.toList());
 				
 	}
+	
+	@Override
+	public void delete(Long id) {
+		
+		Account account = repository.findById(id)
+				.orElseThrow(() -> new AccountNotFound("Account not found by id:" + id));
+		
+		repository.delete(account);
+		
+	}
+	
+	
+	@Override
+	public AccountDTO update(Long id, AccountDTO accountDTO) {
+		Account account = repository.findById(id)
+				.orElseThrow(() -> new AccountNotFound("Account not found by id:" + id));
+		
+		account.builder()
+		.firstname(accountDTO.getFirstname())
+		.lastname(accountDTO.getLastname())
+		.username(accountDTO.getUsername())
+		.password(accountDTO.getPassword())
+		.roles(accountDTO.getRoles())
+		.email(accountDTO.getEmail()).build();
+		
+		repository.save(account);
+		
+	
+		
+		return 	AccountMapper.AccountToAccountDTO(account);
+	}
 
 
 }
